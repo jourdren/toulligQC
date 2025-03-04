@@ -97,6 +97,9 @@ def _parse_args(config_dictionary):
     # Add all optional arguments
     optional.add_argument('-s', '--samplesheet', action='store', dest="samplesheet", 
                           help='a samplesheet (.csv file) to fill out sample names in MinKNOW')
+    optional.add_argument("--use-aliases-for-barcodes", action='store_true', dest='use_aliases',
+                          help="Use the \"alias\" column for barcodes names in the sample sheet file instead of the \"barcode\" column",
+                          default=False)
 
     optional.add_argument("--thread", action='store', dest="thread", help="Number of threads", type=int, default=2)
     optional.add_argument("--batch-size", action='store', dest="batch_size", help="Batch size", type=int, default=500)
@@ -152,6 +155,7 @@ def _parse_args(config_dictionary):
         ('sequencing_summary_1dsqr_source', _join_parameter_arguments(args.sequencing_summary_1dsqr_source)),
         ('sequencing_telemetry_source', args.telemetry_source),
         ('samplesheet', args.samplesheet),
+        ('use_alias_for_barcodes', args.use_aliases),
         ('fastq', _join_parameter_arguments(args.fastq)),
         ('bam', _join_parameter_arguments(args.bam)), 
         ('thread', args.thread),
@@ -359,9 +363,10 @@ def main():
 
         if 'samplesheet' in config_dictionary:
             samplesheet = parse_samplesheet(config_dictionary['samplesheet'])
-            config_dictionary['barcodes'] = ",".join(list(samplesheet['barcode']))
-            config_dictionary['barcode_alias'] = pd.Series(samplesheet.alias.values, 
-                                                           index=samplesheet.barcode).to_dict()
+            column = 'alias' if 'use_alias_for_barcodes' in config_dictionary else 'barcode'
+            config_dictionary['barcodes'] = ",".join(list(samplesheet[column].astype(str)))
+            config_dictionary['barcode_alias'] = pd.Series(samplesheet.alias.values,
+                                                           index=samplesheet[column]).to_dict()
 
         if 'barcodes' in config_dictionary or 'samplesheet' in config_dictionary:
             barcode_set = set()
@@ -383,10 +388,11 @@ def main():
                     if pattern:
                         barcode = 'barcode{}'.format(pattern.group(2))
                         barcode_set.add(barcode)
-                    else: 
-                        sys.stderr.write("\033[93mWarning:\033[0m Barcode '{}' is non-standard custom arrangement.\n".format(b))
+                    else:
+                        if not 'use_alias_for_barcodes' in config_dictionary:
+                            sys.stderr.write("\033[93mWarning:\033[0m Barcode '{}' is non-standard custom arrangement.\n".format(b))
                         barcode_set.add(b)
-                    if 'samplesheet' in config_dictionary:
+                    if 'samplesheet' in config_dictionary and 'use_alias_for_barcodes' not in config_dictionary:
                         config_dictionary['barcode_alias'][barcode] = config_dictionary['barcode_alias'].pop(b)
 
             barcode_selection = sorted(barcode_set)
