@@ -318,6 +318,7 @@ Data acquisition was performed using MinKNOW 1.11.5 and basecalling/demultiplexi
 ```bash
 $ wget https://raw.githubusercontent.com/GenomiqueENS/toulligQC/refs/heads/master/docs/demo/run-toulligqc-demo-with-docker.sh
 $ wget https://raw.githubusercontent.com/GenomiqueENS/toulligQC/refs/heads/master/docs/demo/run-toulligqc-demo.sh
+$ chmod +x run-toulligqc-demo*.sh
 ```
 * Then, you can launch the ToulligQC analysis of the demo data with the `run-toulligqc-demo-with-docker.sh` script if you want to use a Docker container:
 ```bash
