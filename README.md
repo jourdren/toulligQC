@@ -314,19 +314,18 @@ We provide [sample raw data](http://outils.genomique.biologie.ens.fr/leburon/dow
 This demo data has been generated using a MinION MKIb with a R9.4.1 flowcell (FLO-MIN106) in 1D (SQK-LSK108) mode with barcoded samples (BC01, BC02, BC03, BC04, BC05 and BC07).
 Data acquisition was performed using MinKNOW 1.11.5 and basecalling/demultiplexing was completed using Guppy 3.2.4.
 
-* First download and uncompress sample data:
+* First download the demo scripts:
 ```bash
-$ wget http://outils.genomique.biologie.ens.fr/leburon/downloads/toulligqc-example/toulligqc_demo_data.tar.bz2
-$ tar -xzf toulligqc_demo_data.tar.bz2
-$ cd toulligqc_demo_data
+$ wget https://raw.githubusercontent.com/GenomiqueENS/toulligQC/refs/heads/master/docs/demo/run-toulligqc-demo-with-docker.sh
+$ wget https://raw.githubusercontent.com/GenomiqueENS/toulligQC/refs/heads/master/docs/demo/run-toulligqc-demo.sh
 ```
-* Then, you can launch the ToulligQC analysis of the demo data with the `run-toulligqc-with-docker.sh` script if you want to use a Docker container:
+* Then, you can launch the ToulligQC analysis of the demo data with the `run-toulligqc-demo-with-docker.sh` script if you want to use a Docker container:
 ```bash
-$ ./run-toulligqc-with-docker.sh
+$ ./run-toulligqc-demo-with-docker.sh
 ```
-* Or with `run-toulligqc.sh` script if ToulligQC is already installed on your system:
+* Or with `run-toulligqc-demo.sh` script if ToulligQC is already installed on your system:
 ```bash
-$ ./run-toulligqc.sh
+$ ./run-toulligqc-demo.sh
 ```
 
 * Of course, you can also launch manually ToulligQC on the sample data with the following command line:
