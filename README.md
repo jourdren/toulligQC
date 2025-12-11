@@ -19,12 +19,14 @@ Support is availlable on [GitHub issue page](https://github.com/GenomicParisCent
 ## Table of Contents
 
 * 1.[Get ToulligQC](#get-toulligqc)
-  * 1.1 [Local installation](#local-installation)
-  * 1.2 [PyPi package installation](#pypi-installation)
-  * 1.3 [Docker](#docker)
+  * 1.1 [Using uv (recommended)](#uv-installation)
+  * 1.2 [Local installation](#local-installation)
+  * 1.3 [PyPi package installation](#pypi-installation)
+  * 1.4 [Conda environment](#conda-environemnt)
+  * 1.5 [Docker](#docker)
      *  [Docker image recovery](#docker-image-recovery)
      *  [Launching Docker image with docker run](#launching-Docker-image-with-docker-run)
-  * 1.4 [nf-core module](#nfcore-module)
+  * 1.6 [nf-core module](#nfcore-module)
 
 * 2.[Usage](#usage)
   * 2.1 [Command line](#command-line)
@@ -37,8 +39,44 @@ Support is availlable on [GitHub issue page](https://github.com/GenomicParisCent
 
 <a name="get-toulligqc"></a>
 ## 1. Get ToulligQC
+
+<a name="uv-installation"></a>
+### 1.1 Using uv (recommended)
+
+[uv](https://docs.astral.sh/uv/) is a fast Python package and project manager. This is the recommended way to install and manage ToulligQC.
+
+First, install uv if you don't have it:
+```bash
+# On macOS and Linux
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+$ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Then, clone and install ToulligQC:
+```bash
+$ git clone https://github.com/GenomicParisCentre/toulligQC.git
+# X.X here is the version of ToulligQC to install
+$ git checkout vX.X
+$ cd toulligqc
+$ uv sync
+```
+
+Run ToulligQC using:
+```bash
+$ uv run toulligqc [options]
+```
+
+Or activate the virtual environment:
+```bash
+$ source .venv/bin/activate  # On Linux/macOS
+$ .venv\Scripts\activate     # On Windows
+$ toulligqc [options]
+```
+
 <a name="local-installation"></a>
-### 1.1 Local
+### 1.2 Local
 This option is also suitable if you are interested in further developments of the package, but requires a little bit more hands-on. Install the dependencies required and clone the repository locally.
 
 ```bash
@@ -65,7 +103,7 @@ To run ToulligQC without Docker, you need to install the following Python module
 * pod5
 
 <a name="Conda-environemnt"></a>
-### 1.2 Conda environemnt**
+### 1.4 Conda environment
 
 You can use a conda environment to install the required packages:
 
@@ -85,7 +123,7 @@ $ pip3 install toulligqc
 ```
 
 <a name="docker"></a>
-### 1.4 Using Docker
+### 1.5 Using Docker
 ToulligQC and its dependencies are available through a Docker image. To install docker on your system, go to the Docker website (<https://docs.docker.com/engine/installation/>).
 Even if Docker can run on Windows or macOS virtual machines, we recommend to run ToulligQC on a Linux host.
 <a name="docker-image-recovery"></a>
@@ -111,7 +149,7 @@ $ docker run -ti \
 ```
 
 <a name="nfcore-module"></a>
-### 1.4 Using nf-core module
+### 1.6 Using nf-core module
 ToulligQC is also available on nf-core as a module written in nextflow. To install nf-core on your system, please visit their website (<https://nf-co.re/docs/usage/introduction>).
 
 The following command line will install the latest version of the ToulligQC module:
