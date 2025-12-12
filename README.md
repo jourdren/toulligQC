@@ -77,13 +77,16 @@ $ toulligqc [options]
 
 <a name="local-installation"></a>
 ### 1.2 Local
-This option is also suitable if you are interested in further developments of the package, but requires a little bit more hands-on. Install the dependencies required and clone the repository locally.
+This option is also suitable if you are interested in further developments of the package, but requires a little bit more hands-on.
+
+**Note**: This project now uses `uv` and `pyproject.toml` exclusively. The old `setup.py` has been removed. We recommend using the uv method above.
 
 ```bash
 $ git clone https://github.com/GenomicParisCentre/toulligQC.git
 # X.X here is the version of ToulligQC to install
 $ git checkout vX.X
-$ cd toulligqc && python3 setup.py build install
+$ cd toulligqc
+$ pip install .
 ```
 
 * **Requirements**
@@ -109,9 +112,10 @@ You can use a conda environment to install the required packages:
 
 ```
 git clone https://github.com/GenomicParisCentre/toulligQC.git
-cd toulligqc && python3 setup.py build install
+cd toulligqc
 conda env create -f environment.yml
-conda activate toulliqc
+conda activate toulligqc
+pip install .
 ```
 
 <a name="pypi-installation"></a>
