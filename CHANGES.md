@@ -1,4 +1,10 @@
 # Changelog
+
+## 2.8 (TBD)
+* Now use uv to build the project.
+* Demo scripts are now in the GitHub repository.
+* Add a new command line option `--use-aliases-for-barcodes`, to use the "alias" column in sample sheet instead of the "barcode" column.
+
 ## 2.7.1 (2024-08-23)
 * Added Conda environment.yml.
 * Fixed bugs:
