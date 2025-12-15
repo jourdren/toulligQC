@@ -49,9 +49,6 @@ First, install uv if you don't have it:
 ```bash
 # On macOS and Linux
 $ curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# On Windows
-$ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 Then, clone and install ToulligQC:
@@ -63,15 +60,14 @@ $ cd toulligqc
 $ uv sync
 ```
 
-Run ToulligQC using:
+Run ToulligQC with uv using:
 ```bash
 $ uv run toulligqc [options]
 ```
 
 Or activate the virtual environment:
 ```bash
-$ source .venv/bin/activate  # On Linux/macOS
-$ .venv\Scripts\activate     # On Windows
+$ source .venv/bin/activate
 $ toulligqc [options]
 ```
 
