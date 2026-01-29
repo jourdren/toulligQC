@@ -429,6 +429,16 @@ class SequencingSummaryExtractor:
             raise FileNotFoundError("Sequencing summary file not found")
 
     @staticmethod
+    def _is_sequencing_summary_first_column_header(header: str) -> bool:
+        """
+        Check if the first column of the header is "filename" or similar
+        :param header: header line of the file to test
+        :return: True if the first column is "filename" or similar
+        """
+        first_col_name = header.split('\t')[0]
+        return first_col_name in ('filename', 'input_filename', 'filename_fastq','filename_fast5', 'filename_pod5', 'filename_bam')
+
+    @staticmethod
     def _is_barcode_file(filename):
         """
         Check if input is a barcoding summary file i.e. has the column barcode_arrangement
@@ -446,7 +456,7 @@ class SequencingSummaryExtractor:
         :return: True if the file is indeed a sequencing summary file
         """
         header = read_first_line_file(filename)
-        return header.startswith('filename') and not any(col in header for col in ['barcode_arrangement', 'barcode'])
+        return SequencingSummaryExtractor._is_sequencing_summary_first_column_header(header) and not any(col in header for col in ['barcode_arrangement', 'barcode'])
 
     @staticmethod
     def _is_sequencing_summary_with_barcodes(filename):
@@ -457,8 +467,8 @@ class SequencingSummaryExtractor:
         :return: True if the filename is a sequencing summary file with barcodes
         """
         header = read_first_line_file(filename)
-        return header.startswith('filename') and any(col in header for col in ['barcode_arrangement', 'barcode'])
-    
+        return SequencingSummaryExtractor._is_sequencing_summary_first_column_header(header) and any(col in header for col in ['barcode_arrangement', 'barcode'])
+
     def _get_barcode_colname(self, filename):
         """
         Check if the barcode colname in sequencing summary is "barcode_arrangement" or "barcode"
