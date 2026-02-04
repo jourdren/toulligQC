@@ -1,9 +1,10 @@
 # Changelog
 
-## 2.8 (TBD)
+## 2.8 (2025-02-04)
 * Now use uv to build the project.
 * Demo scripts are now in the GitHub repository.
 * Add a new command line option `--use-aliases-for-barcodes`, to use the "alias" column in sample sheet instead of the "barcode" column.
+* Fix issue #44, the name of the first column of the sequencing summary file has changed with new Nanopore specification.
 
 ## 2.7.1 (2024-08-23)
 * Added Conda environment.yml.
