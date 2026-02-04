@@ -29,6 +29,8 @@ RUN apt update && \
     cd / && \
     rm -rf /tmp/toulligQC && \
     rm -rf /root/.local && \
+    mkdir -p /root/.local/bin && \
+    touch /root/.local/bin/env && \
     apt remove --yes --purge $INSTALL_PACKAGES && \
     apt autoremove --yes --purge && \
     apt clean && \
