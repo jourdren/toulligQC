@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-ARG VERSION=2.8
+ARG VERSION=2.8.1
 ARG UV_VERSION=0.9.17
 ARG INSTALL_PACKAGES="curl git"
 RUN apt update && \
