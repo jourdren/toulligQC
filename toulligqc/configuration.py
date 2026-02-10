@@ -80,7 +80,10 @@ class ToulligqcConf:
         return self._config_dictionary.keys()
 
     def qscore_threshold(self):
-        return self._config_dictionary.get('threshold', "9")
+        default_threshold = "9"
+        result = self._config_dictionary.get('threshold', default_threshold)
+
+        return default_threshold if result == "-1" else result
 
     def is_default_qscore_threshold(self):
         return self._config_dictionary.get('threshold') == "-1"
