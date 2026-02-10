@@ -103,7 +103,7 @@ def _parse_args(config_dictionary):
 
     optional.add_argument("--thread", action='store', dest="thread", help="Number of threads", type=int, default=2)
     optional.add_argument("--batch-size", action='store', dest="batch_size", help="Batch size", type=int, default=500)
-    optional.add_argument("--qscore-threshold", action='store', dest="threshold", help="Qscore threshold", type=int, default=9)
+    optional.add_argument("--qscore-threshold", action='store', dest="threshold", help="Qscore threshold", type=int, default=-1)
 
     optional.add_argument("-n", "--report-name", action='store', dest="report_name", help="Report name", type=str)
     optional.add_argument('--output-directory', action='store', dest='output', help='Output directory')

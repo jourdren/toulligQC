@@ -64,7 +64,8 @@ class SequencingSummaryExtractor:
         self.images_directory = config_dictionary['images_directory']
         self.sequencing_summary_files = self.sequencing_summary_source.split('\t')
         self.barcode_colname = 'barcode_arrangement'
-        self.threshold_Qscore = int(config_dictionary['threshold'])
+        self.threshold_Qscore = int(config_dictionary.qscore_threshold())
+        self.default_threshold = config_dictionary.is_default_qscore_threshold()
         if 'quiet' not in config_dictionary or config_dictionary['quiet'].lower() != 'true':
             self.quiet = False
         else:
@@ -126,9 +127,8 @@ class SequencingSummaryExtractor:
         if 'barcode_arrangement' in self.dataframe_1d.columns:
             self.dataframe_1d['barcode_arrangement'] = self.dataframe_1d['barcode_arrangement'].cat.add_categories(
                                                                         [0, 'other barcodes', 'passes_filtering'])
-        if 'passes_filtering' not in self.dataframe_1d.columns:
+        if 'passes_filtering' not in self.dataframe_1d.columns or not self.default_threshold:
             self.dataframe_1d['passes_filtering'] = np.where(self.dataframe_1d['mean_qscore'] > self.threshold_Qscore, True, False)
-
 
         # Replace all NaN values by 0 to avoid data manipulation errors when columns are not the same length
         self.dataframe_1d = self.dataframe_1d.fillna(0)

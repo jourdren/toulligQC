@@ -27,7 +27,7 @@ class fastqExtractor:
         self.config_dictionary = config_dictionary
         self.fastq = config_dictionary['fastq'].split('\t')
         self.images_directory = config_dictionary['images_directory']
-        self.threshold_Qscore = int(config_dictionary['threshold'])
+        self.threshold_Qscore = int(config_dictionary.qscore_threshold())
         self.batch_size = int(config_dictionary['batch_size'])
         self.thread = int(config_dictionary['thread'])
         self.rich = False

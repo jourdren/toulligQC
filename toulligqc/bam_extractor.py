@@ -28,7 +28,7 @@ class uBAM_Extractor:
         self.config_dictionary = config_dictionary
         self.ubam = config_dictionary['bam'].split('\t')
         self.images_directory = config_dictionary['images_directory']
-        self.threshold_Qscore = int(config_dictionary['threshold'])
+        self.threshold_Qscore = int(config_dictionary.qscore_threshold())
         self.batch_size = int(config_dictionary['batch_size'])
         self.thread = int(config_dictionary['thread'])
         self.header = dict()
