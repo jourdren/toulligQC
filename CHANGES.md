@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.8.2 (2025-02-10)
+* The `--qscore-threshold` command line option has no effect if a *passes\_filtering* column exists in the sequencing summary file. Fix #46 issue.
+
 ## 2.8.1 (2025-02-09)
 * Avoid usage of Pandas >= 3.0.0. When Pandas >= 3.0.0 is used, compute\_NXX() and compute\_LXX() throw error because an array is read-only.
 * Update ezcharts version requirement to 0.15.2, as previous version can throw an exception with pkg\_resources dependency.
