@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.8.3 (2025-02-11)
+* Fix: if `--qscore-threshold` option was not set, the default threshold for qscore was -1.
+
 ## 2.8.2 (2025-02-10)
 * The `--qscore-threshold` command line option has no effect if a *passes\_filtering* column exists in the sequencing summary file. Fix #46 issue.
 
