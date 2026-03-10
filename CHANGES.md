@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.8.4 (2025-03-10)
+* chore: Enable semantic-pull-request. (#48)
+* fix: Fix some linter code warnings. (#49)
+* fix: Graph generation crashes on fresh install (pandas ≥2.1 compatibility). (#50)
+* chore: Fix ruff warnings and format. (#51)
+* fix: Change use the same minimal version of ezcharts in pyproject.toml and Dockerfile. (#53)
+
 ## 2.8.3 (2025-02-11)
 * Fix: if `--qscore-threshold` option was not set, the default threshold for qscore was -1.
 
