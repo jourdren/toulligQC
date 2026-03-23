@@ -1,12 +1,12 @@
-<a href="https://raw.githubusercontent.com/GenomicParisCentre/toulligQC/master/docs/Toulligqc.png"><img src="https://raw.githubusercontent.com/GenomicParisCentre/toulligQC/master/docs/Toulligqc.png" align="middle" height="50" width="190" > </a>
-[![PyPI version](https://badge.fury.io/py/toulligqc.svg)](https://badge.fury.io/py/toulligqc) [![Downloads](https://pepy.tech/badge/toulligqc)](https://pepy.tech/project/toulligqc) [![Python 3.8](https://img.shields.io/badge/python-3.8-orange.svg)](https://www.python.org/downloads/release/python-360/) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Mastodon Follow](https://img.shields.io/mastodon/follow/111487733409234458?domain=genomic.social)](https://genomic.social/@Genomique_ENS)
+<a href="https://raw.githubusercontent.com/GenomiqueENS/toulligQC/master/docs/Toulligqc.png"><img src="https://raw.githubusercontent.com/GenomiqueENS/toulligQC/master/docs/Toulligqc.png" align="middle" height="50" width="190" > </a>
+[![PyPI version](https://badge.fury.io/py/toulligqc.svg)](https://badge.fury.io/py/toulligqc) [![Downloads](https://pepy.tech/badge/toulligqc)](https://pepy.tech/project/toulligqc) [![Python 3.11](https://img.shields.io/badge/python-3.11-orange.svg)](https://www.python.org/downloads/release/python-360/)  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
 ToulligQC is dedicated to the QC analyses of Oxford Nanopore runs. This software is written in Python and developped by the [GenomiqueENS core facility](https://genomique.biologie.ens.fr/) of the [Institute of Biology of the Ecole Normale Superieure (IBENS)](http://www.ibens.bio.ens.psl.eu/).
 
-Click on [following image](https://htmlpreview.github.io/?https://github.com/GenomicParisCentre/toulligQC/blob/master/docs/report.html) to see an report example. An [online help](https://htmlpreview.github.io/?https://github.com/GenomicParisCentre/toulligQC/blob/master/docs/help.html) is available to better understand graphics generated with ToulligQC when clicking on the [ⓘ](https://htmlpreview.github.io/?https://github.com/GenomicParisCentre/toulligQC/blob/master/docs/help.html) icon.
+Click on [following image](https://htmlpreview.github.io/?https://github.com/GenomiqueENS/toulligQC/blob/master/docs/report.html) to see an report example. An [online help](https://htmlpreview.github.io/?https://github.com/GenomiqueENS/toulligQC/blob/master/docs/help.html) is available to better understand graphics generated with ToulligQC when clicking on the [ⓘ](https://htmlpreview.github.io/?https://github.com/GenomicParisCentre/toulligQC/blob/master/docs/help.html) icon.
 
-<a href="https://htmlpreview.github.io/?https://github.com/GenomicParisCentre/toulligQC/blob/master/docs/report.html" rel="some text">![Report preview](https://raw.githubusercontent.com/GenomicParisCentre/toulligQC/master/docs/images.png)</a>
+<a href="https://htmlpreview.github.io/?https://github.com/GenomiqueENS/toulligQC/blob/master/docs/report.html" rel="some text">![Report preview](https://raw.githubusercontent.com/GenomiqueENS/toulligQC/master/docs/images.png)</a>
 
 
 
@@ -14,7 +14,7 @@ Click on [following image](https://htmlpreview.github.io/?https://github.com/Gen
 
 Karine Dias, Bérengère Laffay, Lionel Ferrato-Berberian, Sophie Lemoine, Ali Hamraoui, Morgane Thomas-Chollier, Stéphane Le Crom and Laurent Jourdren.
 
-Support is availlable on [GitHub issue page](https://github.com/GenomicParisCentre/toulligQC/issues) and at **toulligqc** **at** **bio.ens.psl.eu**.
+Support is availlable on [GitHub issue page](https://github.com/GenomiqueENS/toulligQC/issues) and at **toulligqc** **at** **bio.ens.psl.eu**.
 
 ## Table of Contents
 
@@ -78,7 +78,7 @@ This option is also suitable if you are interested in further developments of th
 **Note**: This project now uses `uv` and `pyproject.toml` exclusively. The old `setup.py` has been removed. We recommend using the uv method above.
 
 ```bash
-$ git clone https://github.com/GenomicParisCentre/toulligQC.git
+$ git clone https://github.com/GenomiqueENS/toulligQC.git
 # X.X here is the version of ToulligQC to install
 $ git checkout vX.X
 $ cd toulligqc
