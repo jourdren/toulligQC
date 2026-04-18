@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 #                  ToulligQC development code
 #
@@ -22,13 +21,15 @@
 
 # This module contains common methods for sequencing summary modules.
 
-import sys
-import gzip
 import bz2
+import gzip
+import sys
 import time
-import pandas as pd
-from toulligqc import common
 from datetime import datetime
+
+import pandas as pd
+
+from toulligqc import common
 
 
 def set_result_value(extractor, result_dict, key: str, value):
@@ -63,16 +64,14 @@ def check_result_values(extractor, result_dict):
 
 def _check_result_key_value(key, value):
     if not isinstance(key, str):
-        raise TypeError("Invalid type for key: {}".format(type(key)))
+        raise TypeError(f"Invalid type for key: {type(key)}")
 
     if (
         not isinstance(value, int)
         and not isinstance(value, float)
         and not isinstance(value, str)
     ):
-        raise TypeError(
-            "Invalid type for the value of the key {}: {} ".format(key, type(value))
-        )
+        raise TypeError(f"Invalid type for the value of the key {key}: {type(value)} ")
 
 
 def describe_dict(extractor, result_dict: dict, function, entry: str):
@@ -196,9 +195,7 @@ def extract_barcode_info(extractor, result_dict, barcode_selection, dataframe_di
     for element in barcode_selection:
         if element not in barcodes_found and element != "other barcodes":
             sys.stderr.write(
-                "\033[93mWarning:\033[0m The barcode {} doesn't exist in input data\n".format(
-                    element
-                )
+                f"\033[93mWarning:\033[0m The barcode {element} doesn't exist in input data\n"
             )
 
     # Get barcodes frequency by Bases
@@ -287,12 +284,8 @@ def extract_barcode_info(extractor, result_dict, barcode_selection, dataframe_di
     # Create dataframes filtered by barcodes and read quality
     for index_barcode, barcode in enumerate(barcode_selection):
         barcode_all_reads_df = df[df["barcode_arrangement"] == barcode]
-        barcode_pass_reads_df = barcode_all_reads_df.loc[
-            df["passes_filtering"] == bool(True)
-        ]
-        barcode_fail_reads_df = barcode_all_reads_df.loc[
-            df["passes_filtering"] == bool(False)
-        ]
+        barcode_pass_reads_df = barcode_all_reads_df.loc[df["passes_filtering"]]
+        barcode_fail_reads_df = barcode_all_reads_df.loc[~df["passes_filtering"]]
 
         # Add all barcode statistics to result_dict based on values of selected dataframes
         _barcode_stats(
@@ -526,12 +519,12 @@ def _barcode_bases(
 def log_task(quiet, msg, start_time, end_time):
     if not quiet:
         delta = end_time - start_time
-        print("  - {:} in {:}".format(msg, common.format_duration(delta)))
+        print(f"  - {msg} in {common.format_duration(delta)}")
 
 
 def add_image_to_result(quiet, image_list, start_time, image):
     end_time = time.time()
-    log_task(quiet, 'Creation of image "{0}"'.format(image[0]), start_time, end_time)
+    log_task(quiet, f'Creation of image "{image[0]}"', start_time, end_time)
     image_list.append(image)
 
 
@@ -560,9 +553,9 @@ def read_first_line_file(filename):
             with bz2.open(filename, "rt") as f:
                 return f.readline()
         else:
-            with open(filename, "r") as f:
+            with open(filename) as f:
                 return f.readline()
-    except IOError:
+    except OSError:
         raise FileNotFoundError
 
 

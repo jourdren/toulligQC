@@ -1,16 +1,18 @@
-import sys
 import os
 import re
+import sys
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../toulligqc")
-from toulligqc import sequencing_summary_extractor as sse
 import unittest
 from unittest.mock import MagicMock
+
 import config as cfg
+import numpy as np
 import pandas as pd
 import pandas.util.testing as testing
+
+from toulligqc import sequencing_summary_extractor as sse
 from toulligqc.common import is_numpy_1_24
-import numpy as np
 
 ####################################################################################
 # Tests of the SequencingSummaryExtractor class with several configuration cases : #
@@ -238,9 +240,7 @@ class TestSequencingSummaryExtractorOnlySequencingSummary(unittest.TestCase):
             instance.dataframe_1d.loc[instance.dataframe_1d["passes_filtering"]]
         )
         read_fail_count = len(
-            instance.dataframe_1d.loc[
-                ~instance.dataframe_1d["passes_filtering"]
-            ]
+            instance.dataframe_1d.loc[~instance.dataframe_1d["passes_filtering"]]
         )
         read_pass_ratio = read_pass_count / read_count
         read_fail_ratio = read_fail_count / read_count
