@@ -67,8 +67,8 @@ class TestSequencingSummaryExtractorWholeConfig(unittest.TestCase):
         )
 
         # Convert explicitly string values of passes_filtering into booleans
-        cls.expected_df.passes_filtering.replace(
-            {"True": True, "False": False}, inplace=True
+        cls.expected_df.passes_filtering = cls.expected_df.passes_filtering.map(
+            {"True": True, "False": False}
         )
 
         cls.expected_df = cls.expected_df.astype(
