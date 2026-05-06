@@ -1,23 +1,38 @@
 # Changelog
 
-## 2.8.4 (2025-03-10)
+## 2.8.5 (2026-05-06)
+* fix: Reads pie chart and Bases pie chart are swapped #35 (#54)
+* docs: Update README links to GenomiqueENS github repository (#55) (#56)
+* chore: Replace reference all to GenomicParisCentre by GenomiqueENS. (#57)
+* fix: Fix typo in demo scripts for barcode 07 (#58)
+* fix: Fix issue #34 for parsing new FASTQ headers. (#59)
+* feat: Add Ruff to check code format in pull requests. (#60)
+* feat: Add integration-test.yml to perform a small integration test for each push. (#61)
+* chore: cleanup .gitignore (#62)
+* feat: Reactivate old unit test code. (#63)
+* fix: Small dependency fixes. (#65)
+* fix: Fix deprecated API usage. (#64)
+* fix: Failure to detect pod5 files with --pod5-source when directory has files/dirs other than pod5s. (#69)
+* fix: Missing '/' trailing character in the output directory path leads to incorrect output tree. (#66)
+
+## 2.8.4 (2026-03-10)
 * chore: Enable semantic-pull-request. (#48)
 * fix: Fix some linter code warnings. (#49)
 * fix: Graph generation crashes on fresh install (pandas ≥2.1 compatibility). (#50)
 * chore: Fix ruff warnings and format. (#51)
 * fix: Change use the same minimal version of ezcharts in pyproject.toml and Dockerfile. (#53)
 
-## 2.8.3 (2025-02-11)
+## 2.8.3 (2026-02-11)
 * Fix: if `--qscore-threshold` option was not set, the default threshold for qscore was -1.
 
-## 2.8.2 (2025-02-10)
+## 2.8.2 (2026-02-10)
 * The `--qscore-threshold` command line option has no effect if a *passes\_filtering* column exists in the sequencing summary file. Fix #46 issue.
 
-## 2.8.1 (2025-02-09)
+## 2.8.1 (2026-02-09)
 * Avoid usage of Pandas >= 3.0.0. When Pandas >= 3.0.0 is used, compute\_NXX() and compute\_LXX() throw error because an array is read-only.
 * Update ezcharts version requirement to 0.15.2, as previous version can throw an exception with pkg\_resources dependency.
 
-## 2.8 (2025-02-04)
+## 2.8 (2026-02-04)
 * Now use uv to build the project.
 * Demo scripts are now in the GitHub repository.
 * Add a new command line option `--use-aliases-for-barcodes`, to use the "alias" column in sample sheet instead of the "barcode" column.
